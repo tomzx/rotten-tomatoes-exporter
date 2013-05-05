@@ -1,7 +1,7 @@
 Rotten Tomatoes ratings exporter
 =========
 
-The Rotten Tomatoes exporter is pretty straightforward. It allows you to extract your ratings from the website and save it as a json result.
+The Rotten Tomatoes ratings exporter is pretty straightforward. It allows you to extract your ratings from the website and save it as a json result.
 
 This exporter was written so that I could export my ratings and import them later on into other movie tracking websites (such as IMDB).
 
@@ -59,3 +59,8 @@ The JSON output format is pretty simple and minimalist. It is an array of object
   }
 ]
 ```
+
+License
+-------
+
+The code is licensed under the MIT license (http://opensource.org/licenses/MIT). See license.txt.
