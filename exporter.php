@@ -14,13 +14,13 @@ class RottenTomatoesExporter
 {
 	private $user_id = null;
 	private $session_id = null;
-	private $fb = array();
+	private $fb = [];
 
 	public function __construct($session_id, array $fb)
 	{
 		$this->session_id = $session_id;
-		list($dnc, $this->user_id) = preg_split('/-/', $session_id);
-		list($dnc, $id) = preg_split('/_/', array_keys($fb)[0]);
+		list($dnc, $this->user_id) = explode('-', $session_id);
+		list($dnc, $id) = explode('_', array_keys($fb)[0]);
 		$fb['fbm_'.$id] = 'base_domain=.www.rottentomatoes.com';
 		$this->fb = $fb;
 	}
@@ -29,7 +29,7 @@ class RottenTomatoesExporter
 	{
 		echo 'Exporting user_id = '.$this->user_id.', session_id = '.$this->session_id.PHP_EOL;
 
-		$cookie_details = array('session_id' => $this->session_id);
+		$cookie_details = ['session_id' => $this->session_id];
 		$cookie_details = array_merge($cookie_details, $this->fb);
 
 		$context_options = ['http' =>	[
@@ -98,7 +98,7 @@ class RottenTomatoesExporter
 			}
 		}
 
-		usort($data, array(__CLASS__, 'sort_by_title'));
+		usort($data, [__CLASS__, 'sort_by_title']);
 
 		file_put_contents($this->user_id.'.json', json_encode($data));
 	}
