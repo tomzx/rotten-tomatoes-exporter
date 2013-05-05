@@ -42,9 +42,15 @@ class RottenTomatoesExporter
 		$page = 1;
 		$content = '';
 
+		if (!file_exists($this->user_id))
+		{
+			mkdir($this->user_id);
+		}
+
 		while (true)
 		{
-			echo 'Getting page '.$page.' ...'.PHP_EOL;
+			echo 'Getting page '.$page.' ... ';
+			$time_start = microtime(true);
 
 			$page_url = 'http://www.rottentomatoes.com/user/id/'.$this->user_id.'/ratings/?ajax=true&profileUserId='.$this->user_id.'&pageNum='.$page.'&sortby=ratingDate';
 			$page_content = file_get_contents($page_url, false, $context);
@@ -52,10 +58,13 @@ class RottenTomatoesExporter
 			if ($page_content === false || $page_content === $content) return;
 
 			// Get content of interest
-			file_put_contents($this->user_id.'_'.$page.'.html', $page_content);
+			file_put_contents($this->user_id.'/'.$page.'.html', $page_content);
 
 			$content = $page_content;
 			++$page;
+
+			$duration = round(microtime(true) - $time_start, 2);
+			echo 'Done ('.$duration.'s)'.PHP_EOL;
 		}
 	}
 
@@ -63,9 +72,11 @@ class RottenTomatoesExporter
 	{
 		$data = [];
 
-		foreach (glob('*.html') as $file)
+		foreach (glob($this->user_id.'/*.html') as $file)
 		{
-			echo 'Parsing file '.$file.PHP_EOL;
+			$parsing_string = 'Parsing file '.$file;
+			echo $parsing_string.PHP_EOL;
+			echo str_repeat('-', strlen($parsing_string)).PHP_EOL;
 			$content = file_get_contents($file);
 
 			if ($content === '') continue;

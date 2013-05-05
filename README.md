@@ -28,7 +28,7 @@ $session_id = 'SESSION_ID_FROM_COOKIES';
 // Change fbsr_ID and FBSR_VALUE_FROM_COOKIES
 $fb = array('fbsr_ID' => 'FBSR_VALUE_FROM_COOKIES');
 
-$exporter = new RottenTomatoeExporter($session_id, $fb);
+$exporter = new RottenTomatoesExporter($session_id, $fb);
 $exporter->export();
 $exporter->convert_to_json();
 ```
@@ -44,7 +44,7 @@ $session_id = 'owjfmriqnm-948506847';
 
 $fb = array('fbsr_556748447624' => 'Pqz6H8gVG4ZDe9ijIfvyui-kEx_7GfRfgoOLrhRfXi8.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUQ5LTE1ZFhxN1ExM0I3eWx2RkFnM0M3NXU3MjJxaFpGY1FzX3QxWWdTWmxBYV9ZNzBRVWNNVWpoUHNHUG5lMTljY1BYOHJPZi1HN1dPaTNyQkdGd3NwOEVwVzBXWDdTaExrMjdabU9iRlRvQWVtbjJ5RnpXWXVJUXJ4U1duRDdwUVNTdmtCMlVGRlFha1ZSWnRHbnpKamFPdVhNZnkyNjR6dlBUSHhaZ0xDRmpzcng4NGVoYnRzc3llSkgtV05TUFBoVGUyYlFfM3BVNmXZXjhjTFk4eFZZa2wyd2J2dmdPdDZRY190aFM1MURTT3RKc1hQaWtHWDN1aC1Idmk8PXhoN1lYS1ZncTlCckV6WURJaWxMeTBNZzR1NWYzM2E0LXk3VnhVbVJ3V2haRXhiR1c0VW5ldjJkRDRrM3V5ZUVxWSIsImlzc3VlZF9hdCI6MTM2NzcxODY5MiwidXNlcl9pZCI6IjUzMzM5MDYzNiJ9');
 
-$exporter = new RottenTomatoeExporter($session_id, $fb);
+$exporter = new RottenTomatoesExporter($session_id, $fb);
 $exporter->export();
 $exporter->convert_to_json();
 ```
