@@ -5,6 +5,11 @@ The Rotten Tomatoes ratings exporter is pretty straightforward. It allows you to
 
 This exporter was written so that I could export my ratings and import them later on into other movie tracking websites (such as IMDB).
 
+Requirements
+------------
+
+* PHP 5.4 <
+
 How to use
 ----------
 
