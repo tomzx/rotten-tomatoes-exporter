@@ -68,7 +68,7 @@ class RottenTomatoesExporter
 		}
 	}
 
-	public function convert_to_json()
+	public function get_results()
 	{
 		$data = [];
 
@@ -100,7 +100,7 @@ class RottenTomatoesExporter
 
 		usort($data, [__CLASS__, 'sort_by_title']);
 
-		file_put_contents($this->user_id.'.json', json_encode($data));
+		return $data;
 	}
 
 	public static function sort_by_title($a, $b)

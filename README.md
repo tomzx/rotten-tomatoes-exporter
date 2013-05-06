@@ -1,7 +1,7 @@
 Rotten Tomatoes ratings exporter
 =========
 
-The Rotten Tomatoes ratings exporter is pretty straightforward. It allows you to extract your ratings from the website and save it as a json result.
+The Rotten Tomatoes ratings exporter is pretty straightforward. It allows you to extract your ratings from the website. You can then save it to the format you want (either with serialize, json_encode and so on).
 
 This exporter was written so that I could export my ratings and import them later on into other movie tracking websites (such as IMDB).
 
@@ -17,7 +17,7 @@ In order to use the exporter, you will need to do a couple of things:
 
 1. You need to figure out 2 values that you will need to pass to the constructor of RottenTomatoesExporter. You can get those two values by logging into your Rotten Tomatoes account and then finding the generated cookies key=value required.Those two keys are *session_id* and *fbsr_ID* (where ID is going to be specific to your account).
 
-2. Write a simple script that will load the exporter, set the required values and then finally call the exporter.
+2. Write a simple script that will load the exporter, set the required values and then call export) to obtain the data. You can then call get_results() to obtain the array of results so that you may save them (or use them) however you like.
 
 ```php
 <?php
@@ -30,7 +30,9 @@ $fb = array('fbsr_ID' => 'FBSR_VALUE_FROM_COOKIES');
 
 $exporter = new RottenTomatoesExporter($session_id, $fb);
 $exporter->export();
-$exporter->convert_to_json();
+$exporter->get_results();
+
+// Save in the format you want
 ```
 
 Example
@@ -46,7 +48,9 @@ $fb = array('fbsr_556748447624' => 'Pqz6H8gVG4ZDe9ijIfvyui-kEx_7GfRfgoOLrhRfXi8.
 
 $exporter = new RottenTomatoesExporter($session_id, $fb);
 $exporter->export();
-$exporter->convert_to_json();
+$results = $exporter->get_results();
+
+// Save in the format you want
 ```
 
 3. Done! You should have a json file generated for which the filename is your user id on Rotten Tomatoes.
