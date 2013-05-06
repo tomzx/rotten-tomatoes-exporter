@@ -55,17 +55,22 @@ $results = $exporter->get_results();
 
 3. Done! You should have a json file generated for which the filename is your user id on Rotten Tomatoes.
 
-JSON output format
+Results format
 ------------------
 
-The JSON output format is pretty simple and minimalist. It is an array of objects, each containing the title of the movie and the rating you gave it.
+The get_results() output format is pretty simple and minimalist. It is an array of arrays, each containing the title of the movie and the rating you gave it.
 
-```javascript
+```php
+<?php
 [
-  {
-    "title": "The Dark Knight",
-    "rating": "5.0"
-  }
+  [
+    "title" => "The Dark Knight",
+    "rating" => "5.0"
+  ],
+  [
+    "title" => "The Matrix",
+    "rating" => "5.0"
+  ]
 ]
 ```
 
