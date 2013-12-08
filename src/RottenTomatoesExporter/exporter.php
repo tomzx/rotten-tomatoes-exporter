@@ -1,16 +1,8 @@
 <?php
 
-function http_build_cookie(array $data)
-{
-	$cookie_string = '';
-	foreach ($data as $key => $value)
-	{
-		$cookie_string .= $key.'='.$value.';';
-	}
-	return $cookie_string;
-}
+namespace RottenTomatoesExporter;
 
-class RottenTomatoesExporter
+class Exporter
 {
 	private $user_id = null;
 	private $session_id = null;
@@ -32,11 +24,12 @@ class RottenTomatoesExporter
 		$cookie_details = ['session_id' => $this->session_id];
 		$cookie_details = array_merge($cookie_details, $this->fb);
 
-		$context_options = ['http' =>	[
-										'method' => 'GET',
-										'header' => 'Cookie: '.http_build_cookie($cookie_details)
-										]
-							];
+		$context_options = [
+			'http' =>	[
+				'method' => 'GET',
+				'header' => 'Cookie: '.$this->http_build_cookie($cookie_details)
+			]
+		];
 		$context = stream_context_create($context_options);
 
 		$page = 1;
@@ -107,5 +100,15 @@ class RottenTomatoesExporter
 	{
 		if ($a['title'] === $b['title']) return 0;
 		return $a['title'] < $b['title'] ? -1 : 1;
+	}
+
+	private function http_build_cookie(array $data)
+	{
+		$cookie_string = '';
+		foreach ($data as $key => $value)
+		{
+			$cookie_string .= $key.'='.$value.';';
+		}
+		return $cookie_string;
 	}
 }
