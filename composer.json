@@ -1,33 +1,33 @@
 {
-    "name": "tomzx/rotten-tomatoes-exporter",
-    "description": "Rotten Tomatoes Exporter",
-    "type": "library",
-    "keywords": [
-        "rotten tomatoes",
-        "ratings",
-        "exporter"
-    ],
-    "homepage": "https://github.com/tomzx/rotten-tomatoes-exporter",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Tom Rochette",
-            "email": "tom@tomrochette.com",
-            "homepage": "http://www.tomrochette.com"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/tomzx/rotten-tomatoes-exporter/issues"
-    },
-    "require": {
-        "php": ">=5.4"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
-    },
-    "autoload": {
-        "psr-0": {
-            "RottenTomatoesExporter": "src/"
-        }
-    }
+	"name": "tomzx/rotten-tomatoes-exporter",
+	"description": "Rotten Tomatoes Exporter",
+	"type": "library",
+	"keywords": [
+		"rotten tomatoes",
+		"ratings",
+		"exporter"
+	],
+	"homepage": "https://github.com/tomzx/rotten-tomatoes-exporter",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Tom Rochette",
+			"email": "tom@tomrochette.com",
+			"homepage": "http://www.tomrochette.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/tomzx/rotten-tomatoes-exporter/issues"
+	},
+	"require": {
+		"php": ">=5.4"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "~4"
+	},
+	"autoload": {
+		"psr-0": {
+			"RottenTomatoesExporter": "src/"
+		}
+	}
 }
