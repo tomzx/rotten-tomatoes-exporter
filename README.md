@@ -8,7 +8,7 @@ This exporter was written so that I could export my ratings and import them late
 Requirements
 ------------
 
-* PHP 5.4 <
+* PHP 5.4 <=
 
 How to use
 ----------
